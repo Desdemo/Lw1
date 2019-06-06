@@ -76,8 +76,8 @@ func main() {
 			if (userID == "admin" && password == "admin") || (userID == "test" && password == "test") {
 				return &User2{
 					UserName:  userID,
-					LastName:  "Bo-Yi",
-					FirstName: "Wu",
+					LastName:  "LT",
+					FirstName: "B",
 				}, nil
 			}
 

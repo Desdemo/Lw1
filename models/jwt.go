@@ -57,7 +57,7 @@ type User1 struct {
 }
 
 //定义一个回调函数，用来决断用户id和密码是否有效
-func authCallback(c *gin.Context) (interface{}, bool ) {
+func authCallback(c *gin.Context) (interface{}, error) {
 	//这里的 admin 和 test 都以硬代码的方式写进来用来作判断
 	//生产环境下使用数据库来存储账号信息，进行检验和判断
 	userId := c.PostForm("username")
@@ -65,11 +65,11 @@ func authCallback(c *gin.Context) (interface{}, bool ) {
 	if (userId == "admin" && password == "admin") || (userId == "test" && password == "test") {
 		return &User1{
 			UserID:    userId,
-			LastName:  "test Last Name",
-			FirstName: "test First Name",
-		}, true
+			LastName:  "123",
+			FirstName: "123",
+		}, nil
 	}
-	return nil, false
+	return nil, jwt.ErrFailedAuthentication
 }
 
 //定义一个回调函数，用来决断用户在认证成功的前提下，是否有权限对资源进行访问
