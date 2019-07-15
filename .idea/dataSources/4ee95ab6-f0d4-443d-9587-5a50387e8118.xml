@@ -521,7 +521,6 @@
     </column>
     <index id="137" parent="10" name="idx_sales_deleted_at">
       <ColNames>deleted_at</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="138" parent="10">
       <ColNames>id</ColNames>
